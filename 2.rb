@@ -15,4 +15,15 @@
 #
 #
 ## Решение:
+require 'digest/md5'
 
+input = gets.strip
+num = 1
+
+loop do
+	my_hash = Digest::MD5.hexdigest(input + num.to_s)
+	my_hash[0,5] == "00000" ? break : num += 1
+end
+
+
+puts num

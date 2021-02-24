@@ -16,6 +16,20 @@
 #
 ## Решение:
 
+def read_instruction(instruction)
+	floor = 0
+	instruction.each_char do |direction|
+		if direction == "("
+			floor += 1
+		elsif direction == ")"
+			floor -= 1
+		end
+	end
+	return floor
+end
+
+puts read_instruction(IO.read('data/1.txt'))
+
 
 
 

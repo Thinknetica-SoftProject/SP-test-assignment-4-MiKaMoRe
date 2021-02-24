@@ -16,4 +16,19 @@
 #
 ## Решение:
 
+def paper_counter(data)
+	counter = 0
+	data.each_line do |size|
+		size = size.split('x')
+		size = size.map{|elem| elem.to_i}
+		multiplied = []
+		size.each_with_index do |elem, index|
+			multiplied[index] = size[index] * size[index - 1]
+		end
+		counter += multiplied.inject(0){ |result, elem| result + elem } * 2 + multiplied.min
+	end
+	return counter
+end
 
+
+puts paper_counter(IO.read('data/4.txt'))

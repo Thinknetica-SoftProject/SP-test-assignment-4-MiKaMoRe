@@ -11,3 +11,14 @@
 ## Решение:
 
 
+def search_password(data)
+	pass = []
+	data.each_line do |row|
+		row = row.split(' ')
+		row = row.map{|elem| elem.to_i}
+		pass[pass.size] = row.max - row.min
+	end
+	return pass.inject(0){ |result, elem| result + elem }
+end
+
+puts search_password(IO.read('data/3.txt'))
